@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP CALCULATOR</title>
+    <link rel="stylesheet" href="sip.css"> 
+</head>
+<body>
+    <div class="wrapper">
+        <h1>SIP CALCULATOR</h1>
+        <div class="field">
+            <label for="">AMOUNT INVESTED ₹</label>
+            <div>
+                <input type="text" placeholder="5000" class="amount">
+            </div>
+        </div>
+        <div class="field">
+            <label for="">Rate Of Return %</label>
+            <div>
+                <input type="text" placeholder="15%" class="rate">
+            </div>
+        </div>
+        <div class="field">
+            <label for="">Duration Yrs</label>
+            <div>
+                <input type="text" placeholder="20" class="years">
+            </div>
+        </div>
+        <button onclick="calculateSIP()">CALCULATE</button>
+        <h4>TOTAL AMOUNT INVESTED: <p id="amountI">0 ₹</p></h4>
+        <h4>FINAL AMOUNT: <p id="futureValue">0 ₹</p></h4>
+        <script>
+            function calculateSIP(){
+                var amountINVESTED = parseFloat(document.querySelector(".amount").value); 
+                var rateOFReturn = parseFloat(document.querySelector(".rate").value);
+                var time = parseFloat(document.querySelector(".years").value);
+                
+                var monthlyRate = rateOFReturn / 12 / 100;
+                var months = time * 12;
+                var futureValue = amountINVESTED * (Math.pow(1 + monthlyRate, months) - 1) / monthlyRate;
+                var amountTotalInvested = amountINVESTED * months;
+                
+                document.getElementById("amountI").innerHTML = "₹" + amountTotalInvested.toFixed(2);
+                document.getElementById("futureValue").innerHTML = "₹" + Math.round(futureValue > 0 ? futureValue : 0);
+            }
+        </script>
+    </div>
+</body>
+</html>
+

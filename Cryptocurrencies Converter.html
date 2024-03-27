@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://127.0.0.1:5500/crypto.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrencies Converter</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    div{
+        display: block;
+    }
+    body{
+        width: 100%;
+        color: #26374c;
+        background: #f5f7fa;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    header{
+        background: none;
+        padding-top: 50px;
+        margin-bottom: 5px;
+    }
+    .img-placed img{
+        width: 600px;
+    }
+    .container{
+
+    }
+</style></head>
+
+<body>
+    <header>
+    <div class="container">   
+    <div class="img-placed">
+        <img src="./Cryptocurrencies Converter_files/OIP.jpg" alt="Placeholder Image">
+    </div>
+    <form action="http://127.0.0.1:5500/crypto.html">
+        <input type="text" name="amount" id="amount" placeholder="Enter Amount" required="">
+        <label id="formCurrencyName"></label>
+        <div class="select-field">
+            <select name="fromCurrency" id="fromCurrency" onchange="showCrypto()">
+                
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="INR">INR</option> 
+                <option value="CNY">CNY</option> 
+                <option value="CHF">CHF</option> 
+                <option value="NZD">NZD</option>
+            </select>
+            <select name="toCurrency" id="toCurrency" onchange="showCurrency()">
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">Ripple</option>
+                <option value="LTC">Litecoin</option>
+                <option value="DOGE">Dogecoin</option>
+                <option value="BCH">Bitcoin Cash</option>
+                <option value="ADA">Cardano</option> 
+                <option value="DOT">Polkadot</option> 
+                <option value="LINK">Chainlink</option> 
+            </select>
+         </div>
+
+         <br>
+         <button type="button" id="convert" class="primary-btn">Convert</button>
+    </form>
+    <p id="result"></p>
+    </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</header></body></html>
